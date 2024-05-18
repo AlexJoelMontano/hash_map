@@ -1,15 +1,13 @@
-# hash_map
+# hash_map program
 #
-## HashMap.new will create a new HashMap
-### #set(key,input)
-This will create a new entry in the hash map
-### #get(key)
-This will find the key and give you its bucket or value.
-### #has?(key)
-This will return True if key is in the HashMap, False if key is not in the HashMap. 
-### #remove(key)
-Will remove key and its content if key is in the HashMap. 
-### #values
-Returns an array of all of contents in the HashMap
-### #length
-Gives total number of keys in the hashmap
+## FARM GAME UPDATE!
+#
+### Farm Manager Simulator
+In the Farm Manager Simulator game you will use your CLI to manage your very own farm.
+#### Objective
+Try to earn as much money as possible by buying and selling crops. 
+#### How to play:
+You will be prompted by a menu that will ask if you want to view your crops, sell your crops, or buy crops.
+Everytime you load the game it will generate how many crops you collected that day, then you can choose whether to buy more or sell. 
+#### To end the game type: 'done'
+This game uses a HashMap to store crops in buckets and retrieve them using custom methods for the HashMap.

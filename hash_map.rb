@@ -87,9 +87,9 @@ end
 Inventory = HashMap.new
 
 #scenario of random amounts of crops
-Crops = ["wheat", "corn", "rice", "soybeans", "beans", "barley", "oats", "peanuts", "beans", "strawberries", "blueberries", "raspberries"]
+Crops = ["wheat", "corn", "canola", "sugarcane", "potatoes", "strawberries", "tomatoes", "lettuce"]
 Crops.each do |crop|
-  random = rand(1..1000)
+  random = rand(1..500)
   Inventory.set(crop,random)
 end
 
@@ -158,10 +158,10 @@ class Farm
 end
 
 farm = Farm.new
-puts "_____________________________________"
+puts "--------------------------------------"
 puts "Farming Manager Simulator CLI edition"
 puts "------------------------------------------------------------------------------------"
-puts "This game will prompt you if you want to Buy, Sell, or View your inventory of crops."
+puts "Manage your farm by Buying, Selling, or Viewing your inventory of crops."
 puts "------------------------------------------------------------------------------------"
 puts "Crops:"
 p Crops
