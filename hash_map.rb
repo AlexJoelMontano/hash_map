@@ -88,6 +88,7 @@ Inventory = HashMap.new
 
 #scenario of random amounts of crops
 Crops = ["wheat", "corn", "canola", "sugarcane", "potatoes", "strawberries", "tomatoes", "lettuce"]
+
 Crops.each do |crop|
   random = rand(1..500)
   Inventory.set(crop,random)
@@ -98,7 +99,6 @@ class Farm
   def initialize
     @crops = Crops
     @money = 100
-    @price = rand(1..10)
   end
 
   def amount(crop)
@@ -110,6 +110,8 @@ class Farm
     puts "How many #{crop} do you want to sell?"
     selling = gets.chomp.to_i
 
+    price = rand(1..10)
+
     if selling > amount(crop)
       puts "You cannot sell more than you have enter a lower amount!"
     else
@@ -117,8 +119,8 @@ class Farm
       remain = inv - selling
       Inventory.set(crop, remain)
 
-      puts "#{crop} is selling for #{@price} per unit"
-      profit = selling * @price
+      puts "#{crop} is selling for #{price} per unit"
+      profit = selling * price
       @money = @money + profit
       puts "You made #{profit} for selling #{selling} #{crop} you now have #{@money} in your wallet"
     end
@@ -137,7 +139,7 @@ class Farm
   def buy(crop)
     puts "How many units do you want to buy?"
     buying = gets.chomp.to_i
-    buying_price = @price + rand(1..5)
+    buying_price = rand(3..15)
     bought = buying * buying_price
     puts "#{crop} cost #{buying_price} per unit for a total of #{bought}, do you want to buy? (yes/no)"
     buy_choice = gets.chomp
@@ -158,6 +160,7 @@ class Farm
 end
 
 farm = Farm.new
+
 puts "--------------------------------------"
 puts "Farming Manager Simulator CLI edition"
 puts "------------------------------------------------------------------------------------"
@@ -165,13 +168,14 @@ puts "Manage your farm by Buying, Selling, or Viewing your inventory of crops."
 puts "------------------------------------------------------------------------------------"
 puts "Crops:"
 p Crops
+
 game_choice = " "
 
 #farm game that will keep prompting until 'done' is entered
 
-until game_choice == 'done'
+until game_choice == 'exit'
   puts ' '
-  puts "Menu: |view|  |sell|  |buy|  |wallet|"
+  puts "Menu: |view|  |sell|  |buy|  |wallet|  |exit|"
   game_choice = gets.chomp
 
   if game_choice == 'view'
