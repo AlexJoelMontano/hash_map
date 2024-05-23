@@ -171,8 +171,6 @@ p Crops
 
 game_choice = " "
 
-#farm game that will keep prompting until 'done' is entered
-
 until game_choice == 'exit'
   puts ' '
   puts "Menu: |view|  |sell|  |buy|  |wallet|  |exit|"
